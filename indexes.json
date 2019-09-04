@@ -1,0 +1,34 @@
+[
+  {
+    "table": "test",
+    "name": "test_index",
+    "fields": [
+      {
+        "field_name": "test_1",
+        "index_type": 1
+      }
+    ],
+    "unique": true,
+    "background": true
+  },
+  {
+    "table": "test",
+    "name": "test__text_index",
+    "fields": [
+      {
+        "field_name": "test_2",
+        "index_type": "text"
+      },
+      {
+        "field_name": "test_3",
+        "index_type": "text"
+      }
+    ],
+    "weights": {
+       "test_2": 10,
+       "test_3": 5
+     },
+    "unique": true,
+    "background": true
+  }
+]
