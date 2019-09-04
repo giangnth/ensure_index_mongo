@@ -2,6 +2,7 @@ import json
 import numbers
 from src.common import WORKING_DIR
 from src.models.mongo.db_manager import DBManager
+from pymongo import ASCENDING, DESCENDING
 
 if __name__ == '__main__':
     indexes_file = WORKING_DIR + "indexes.json"
@@ -22,7 +23,7 @@ if __name__ == '__main__':
         if not name:
             raise Exception("index name: {} is null or empty !".format(name))
         for field in x.get('fields'):
-            if isinstance(field.get('index_type'), numbers.Number) or field.get('index_type') == 'text':
+            if (isinstance(field.get('index_type'), numbers.Number) and field.get('index_type') in [ASCENDING, DESCENDING]) or field.get('index_type') == 'text':
                 lst_fields.append((field.get('field_name'), field.get('index_type')))
                 is_text_index = True if field.get('index_type') == 'text' else False
             else:
