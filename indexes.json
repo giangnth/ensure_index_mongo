@@ -1,34 +1,76 @@
 [
-  {
-    "table": "test",
-    "name": "test_index",
-    "fields": [
-      {
-        "field_name": "test_1",
-        "index_type": 1
-      }
-    ],
-    "unique": true,
-    "background": true
-  },
-  {
-    "table": "test",
-    "name": "test__text_index",
-    "fields": [
-      {
-        "field_name": "test_2",
-        "index_type": "text"
-      },
-      {
-        "field_name": "test_3",
-        "index_type": "text"
-      }
-    ],
-    "weights": {
-       "test_2": 10,
-       "test_3": 5
-     },
-    "unique": true,
-    "background": true
-  }
+    {
+        "table": "ads_automation",
+        "name": "merchant_id_1_session_id_1",
+        "fields": [
+            {
+                "field_name": "merchant_id",
+                "index_type": 1
+            },
+            {
+                "field_name": "session_id",
+                "index_type": 1
+            }
+        ],
+        "unique": false,
+        "background": true
+    },
+    {
+        "table": "profile",
+        "name": "merchant_id_1_profile_id_1",
+        "fields": [
+            {
+                "field_name": "merchant_id",
+                "index_type": 1
+            },
+            {
+                "field_name": "profile_id",
+                "index_type": 1
+            }
+        ],
+        "unique": true,
+        "background": true
+    },
+    {
+        "table": "profile_suggests_merge",
+        "name": "text_filter",
+        "fields": [
+            {
+                "field_name": "status",
+                "index_type": 1
+            },
+            {
+                "field_name": "filter_value",
+                "index_type": "text"
+            },
+            {
+                "field_name": "updated_time",
+                "index_type": -1
+            }
+        ],
+        "weights": {
+            "filter_value": 1
+        },
+        "unique": false,
+        "background": true
+    },
+    {
+        "table": "ss_interactive_by_activities",
+        "name": "merchant_id_1_profile_id_1",
+        "fields": [
+            {
+                "field_name": "merchant_id",
+                "index_type": 1
+            },
+            {
+                "field_name": "profile_id",
+                "index_type": 1
+            }
+        ],
+        "partial": {
+            "activity_type": "New"
+        },
+        "unique": true,
+        "background": true
+    }
 ]
